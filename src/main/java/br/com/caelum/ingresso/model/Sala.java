@@ -3,6 +3,8 @@ package br.com.caelum.ingresso.model;
 import org.hibernate.validator.constraints.NotBlank;
 
 import javax.persistence.*;
+
+import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -12,65 +14,76 @@ import java.util.stream.Collectors;
 @Entity
 public class Sala {
 
-    @Id
-    @GeneratedValue
-    private Integer id;
+	@Id
+	@GeneratedValue
+	private Integer id;
 
-    @NotBlank
-    private String nome;
+	@NotBlank
+	private String nome;
 
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Lugar> lugares = new ArrayList<>();
+	@OneToMany(fetch = FetchType.EAGER)
+	private List<Lugar> lugares = new ArrayList<>();
 
-    /**
-     * @deprecated hibernate only
-     */
-    public Sala() {
+	private BigDecimal preco;
 
-    }
+	/**
+	 * @deprecated hibernate only
+	 */
+	public Sala() {
 
-    public Sala(String nome) {
-        this.nome = nome;
-    }
+	}
 
-    public Integer getId() {
-        return id;
-    }
+	public Sala(String nome, BigDecimal preco) {
+		this.nome = nome;
+		this.preco = preco;
+	}
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+	public BigDecimal getPreco() {
+		return preco;
+	}
 
-    public String getNome() {
-        return nome;
-    }
+	public void setPreco(BigDecimal preco) {
+		this.preco = preco;
+	}
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
+	public Integer getId() {
+		return id;
+	}
 
+	public void setId(Integer id) {
+		this.id = id;
+	}
 
-    public void add(Lugar lugar) {
-        this.lugares.add(lugar);
-    }
+	public String getNome() {
+		return nome;
+	}
 
-    public List<Lugar> getLugares() {
-        return lugares;
-    }
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
 
-    public void setLugares(List<Lugar> lugares) {
-        this.lugares = lugares;
-    }
+	public void add(Lugar lugar) {
+		this.lugares.add(lugar);
+	}
 
-    public Map<String, List<Lugar>> getMapaDeLugares() {
-        if(!this.lugares.isEmpty()){
-            return this.lugares.stream().collect(Collectors.groupingBy(Lugar::getFileira,Collectors.toList()));
-        }
-        return Collections.emptyMap();
-    }
+	public List<Lugar> getLugares() {
+		return lugares;
+	}
 
-    public Integer lugar(String fileira, Integer posicao){
-        Optional<Lugar> optional = this.lugares.stream().filter((x) -> fileira.equals(x.getFileira()) && posicao.equals(x.getPosicao())).findFirst();
-        return optional.get().getId();
-    }
+	public void setLugares(List<Lugar> lugares) {
+		this.lugares = lugares;
+	}
+
+	public Map<String, List<Lugar>> getMapaDeLugares() {
+		if (!this.lugares.isEmpty()) {
+			return this.lugares.stream().collect(Collectors.groupingBy(Lugar::getFileira, Collectors.toList()));
+		}
+		return Collections.emptyMap();
+	}
+
+	public Integer lugar(String fileira, Integer posicao) {
+		Optional<Lugar> optional = this.lugares.stream()
+				.filter((x) -> fileira.equals(x.getFileira()) && posicao.equals(x.getPosicao())).findFirst();
+		return optional.get().getId();
+	}
 }
