@@ -7,9 +7,9 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
-import br.com.caelum.ingresso.model.Filme;
-import br.com.caelum.ingresso.model.Sala;
-import br.com.caelum.ingresso.model.Sessao;
+import br.com.caelum.ingresso.modelo.Filme;
+import br.com.caelum.ingresso.modelo.Sala;
+import br.com.caelum.ingresso.modelo.Sessao;
 
 @Repository
 public class SessaoDao {

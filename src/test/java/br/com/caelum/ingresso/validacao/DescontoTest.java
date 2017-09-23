@@ -7,13 +7,13 @@ import java.time.LocalTime;
 import org.junit.Assert;
 import org.junit.Test;
 
-import br.com.caelum.ingresso.model.Filme;
-import br.com.caelum.ingresso.model.Ingresso;
-import br.com.caelum.ingresso.model.Sala;
-import br.com.caelum.ingresso.model.Sessao;
-import br.com.caelum.ingresso.model.desconto.DescontoDeTrintaPorCentoParaBancos;
-import br.com.caelum.ingresso.model.desconto.DescontoEstudante;
-import br.com.caelum.ingresso.model.desconto.SemDesconto;
+import br.com.caelum.ingresso.modelo.Filme;
+import br.com.caelum.ingresso.modelo.Ingresso;
+import br.com.caelum.ingresso.modelo.Sala;
+import br.com.caelum.ingresso.modelo.Sessao;
+import br.com.caelum.ingresso.modelo.desconto.DescontoDeTrintaPorCentoParaBancos;
+import br.com.caelum.ingresso.modelo.desconto.DescontoEstudante;
+import br.com.caelum.ingresso.modelo.desconto.SemDesconto;
 
 public class DescontoTest {
 

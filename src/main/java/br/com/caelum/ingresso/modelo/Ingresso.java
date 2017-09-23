@@ -1,8 +1,8 @@
-package br.com.caelum.ingresso.model;
+package br.com.caelum.ingresso.modelo;
 
 import java.math.BigDecimal;
 
-import br.com.caelum.ingresso.model.desconto.Desconto;
+import br.com.caelum.ingresso.modelo.desconto.Desconto;
 
 public class Ingresso {
 

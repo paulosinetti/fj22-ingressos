@@ -1,4 +1,4 @@
-package br.com.caelum.ingresso.model;
+package br.com.caelum.ingresso.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
