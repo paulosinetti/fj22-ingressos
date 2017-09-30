@@ -1,11 +1,11 @@
 package br.com.caelum.ingresso.dao;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+
 import org.springframework.stereotype.Repository;
 
 import br.com.caelum.ingresso.modelo.Lugar;
-
-import javax.persistence.EntityManager;
-import javax.persistence.PersistenceContext;
 
 /**
  * Created by nando on 03/03/17.
@@ -19,4 +19,9 @@ public class LugarDao {
     public void save(Lugar lugar) {
         manager.persist(lugar);
     }
+    
+    public Lugar findOne(Integer id){
+		
+		return manager.find(Lugar.class, id);
+	}
 }
